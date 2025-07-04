@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/asadwaheed1/AndroidPdfViewer.svg)](https://jitpack.io/#asadwaheed1/AndroidPdfViewer)
 
 
 
