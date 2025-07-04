@@ -4,7 +4,7 @@ apply plugin: 'maven-publish'
 android {
     namespace = 'com.github.barteksc'
     compileSdk = rootProject.tools.compileSdk
-
+    resourcePrefix "pdfviewer_"
     defaultConfig {
         minSdk = rootProject.tools.minSdk
         targetSdk = rootProject.tools.targetSdk
@@ -20,18 +20,19 @@ android {
     }
 }
 
-task sourcesJar(type: Jar) {
+tasks.register('sourcesJar', Jar) {
     archiveClassifier.set('sources')
     from android.sourceSets.main.java.srcDirs
 }
 
 // Create a dummy javadoc directory with a placeholder file
-file("$buildDir/docs/javadoc").mkdirs()
-file("$buildDir/docs/javadoc/index.html").text = "<html><body>Placeholder documentation</body></html>"
+layout.buildDirectory.dir("docs/javadoc").get().asFile.mkdirs()
+layout.buildDirectory.file("docs/javadoc/index.html").get().asFile.text = "<html><body>Placeholder documentation</body></html>"
 
-task javadocJar(type: Jar) {
+tasks.register('javadocJar', Jar) {
     archiveClassifier.set('javadoc')
-    from file("${project.buildDir}/docs/javadoc")
+    //from file("${project.buildDir}/docs/javadoc")
+    from layout.buildDirectory.file("docs/javadoc")
 }
 
 artifacts {
