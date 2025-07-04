@@ -18,6 +18,12 @@ Licensed under Apache License 2.0.
 
 #
 
+## 3.2.0-beta06 (04 July 2025)
+
+* fixed issue where colors were getting overridden in depending apps
+* updated deprecated functions that were used in build.gradle
+* implementation 'com.github.asadwaheed1:AndroidPdfViewer:v3.2.0-beta06'
+
 ## 3.2.0-beta05 (27 May 2025)
 
 * targetSdk 35
